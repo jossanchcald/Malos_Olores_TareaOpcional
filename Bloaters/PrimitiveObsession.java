@@ -43,7 +43,6 @@ public class PrimitiveObsession {
 
         public Pedido(double monto) {
             this.monto = monto;
-            this.estado = 0; // Inicia en Creado
         }
 
         public void actualizarEstado(int nuevoEstado) {
@@ -53,16 +52,14 @@ public class PrimitiveObsession {
                 return;
             }
 
-            // Nada impide que alguien pase un número que no existe
             if (nuevoEstado == 500) {
-                System.out.println("¿Qué estado es 500?"); // Bug potencial
+                System.out.println("¿Qué estado es 500?");
             }
 
             this.estado = nuevoEstado;
         }
 
         public boolean esCancelable() {
-            // Tienes que recordar que 2 es "Enviado" y 3 es "Entregado"
             return this.estado < 2; 
         }
     }
